@@ -29,7 +29,9 @@ public class DropBoxFilter extends Filter {
         filter.$x(clickLocator).click();
         $$x(listLocator).shouldBe(CollectionCondition.sizeGreaterThan(0))
                 .find(text(value)).click();
-        return $x(selectLocator).exists();
+        return filter
+                .$x(selectLocator)
+                .exists();
     }
 
 }
