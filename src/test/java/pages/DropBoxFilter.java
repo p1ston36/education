@@ -8,9 +8,9 @@ import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class DropBoxFilter extends Filter {
-    private String listLocator = "//div[contains(@class, 'mat-select-content')]//mat-option";
-    private String clickLocator = ".//div[contains(@class, 'mat-select-arrow-wrapper')]";
-    private String selectLocator = ".//span[contains(@class, 'inserted')]/span";
+    private static String listLocator = "//div[contains(@class, 'mat-select-content')]//mat-option";
+    private static String inputLocator = ".//div[contains(@class, 'mat-select-arrow-wrapper')]";
+    private static String selectLocator = ".//span[contains(@class, 'inserted')]/span";
 
     public DropBoxFilter(SelenideElement filter) {
         super(filter);
@@ -26,7 +26,7 @@ public class DropBoxFilter extends Filter {
 //    }
 
     public boolean setValue(String value){
-        filter.$x(clickLocator).click();
+        filter.$x(inputLocator).click();
         $$x(listLocator).shouldBe(CollectionCondition.sizeGreaterThan(0))
                 .find(text(value)).click();
         return filter
