@@ -7,16 +7,17 @@ import org.junit.jupiter.api.Test;
         private int last;
         private int total;
 
-        public PaginationValue(String str) {
-            first = parseString(str, 0);
-            last = parseString(str, 2);
-            total = parseString(str, 4);
+        public static PaginationValue parse(String str) {
+            String[] tokens = str.split(" ");
+            PaginationValue value = new PaginationValue();
+
+            value.first = Integer.parseInt(tokens[0]);
+            value.last = Integer.parseInt(tokens[2]);
+            value.total = Integer.parseInt(tokens[4]);
+            return value;
         }
 
-        private int parseString(String s, int number) {
-            return Integer
-                    .parseInt(s.split(" ")[number]);
-        }
+        private PaginationValue() {}
 
         public int getFirst() {
             return first;
