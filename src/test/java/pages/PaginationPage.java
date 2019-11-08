@@ -13,24 +13,19 @@ import static com.codeborne.selenide.Selenide.actions;
 
 public class PaginationPage {
     private final String sizeFilterLocator = "//mat-paginator//mat-form-field";
-    private final String selectResultLocator = "//div[contains(@class,'range-label')]";
+    private final String resultLocator = "//div[contains(@class,'range-label')]";
     private final String nextPageLocator = "//mat-paginator//button[contains(@class,'next')]";
     private final String previousPageLocator = "//mat-paginator//button[contains(@class,'previous')]";
-    private ArrayList<String> pageSize = new ArrayList<>();
+    private int[] pageSize = {10, 25, 50};
     DropBoxFilter size;
     public PaginationPage(SelenideElement pagination){
-        initPageSize();
         size = new DropBoxFilter($x(sizeFilterLocator));
     }
 
-    public ArrayList<String> getPageSize() {
-        return pageSize;
-    }
+    PaginationValue values = PaginationValue.parse($x(resultLocator).getText());
 
-    private void initPageSize() {
-        pageSize.add("10");
-        pageSize.add("25");
-        pageSize.add("50");
+    public int[] getPageSize() {
+        return pageSize;
     }
 
     public boolean nextPage(){

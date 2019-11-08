@@ -1,6 +1,6 @@
 package tests;
 import com.codeborne.selenide.Condition;
-import helper.LoginHelper;
+import pages.LoginPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -9,11 +9,11 @@ import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SignInTest {
-    private LoginHelper loginHelper = new LoginHelper();
+    private LoginPage loginPage = new LoginPage();
 
     @BeforeEach
     public void beforeEach() {
-        loginHelper.logIn();
+        loginPage.logIn();
     }
 
     @Test

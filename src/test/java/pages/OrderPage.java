@@ -1,29 +1,41 @@
 package pages;
 
-import helper.LoginHelper;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 
 
-import java.util.Random;
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.Collections;
+import java.util.List;
 
 public class OrderPage {
+    private OrderFilterPageFragment orderFilterPageFragment = new OrderFilterPageFragment();
+    private List<String> statusFilterDropList;
+    private By searchButton;
+    private By orderList;
 
-    private LoginHelper loginHelper = new LoginHelper();
-
-    @BeforeEach
-    public void before(){
-        loginHelper.logIn();
+    public List<String> getAvailableStatuses() {
+        return Collections.emptyList();
     }
 
-    @Test
-    public void testStatusFilter(){
-        OrderFilterPage filters = new OrderFilterPage();
-        int i = new Random().nextInt(3);
-        filters.status.setValue(filters.getStatusList().get(i));
-
+    public OrderPage openStatusFilter(){
+        this.statusFilterDropList =  orderFilterPageFragment.status.open();
+        return this;
+    }
+    public OrderPage setStatus(String status) {
+        orderFilterPageFragment.status.setValue(status);
+        return this;
     }
 
+    public OrderPage search() {
+        orderFilterPageFragment.search();
+        return this;
+    }
+
+    public List<?> getOrders() {
+
+        return Collections.emptyList();
+    }
+
+    public List<String> getStatusFilterDroplist() {
+        return statusFilterDropList;
+    }
 }

@@ -1,7 +1,5 @@
 package pages;
 
-import org.junit.jupiter.api.Test;
-
     public class PaginationValue {
         private int first;
         private int last;
