@@ -1,5 +1,6 @@
 package tests;
 
+import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pages.LoginPage;
@@ -19,7 +20,7 @@ public class OrderPageTest {
 
     @Test
     public void testStatusFilter(){
-        List<?> orders = orderPage.setStatus("У роботі")
+        List<SelenideElement> orders = orderPage.setStatus("У роботі")
                 .search()
                 .getOrders();
 

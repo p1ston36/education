@@ -6,6 +6,7 @@ import static com.codeborne.selenide.Condition.visible;
 
 public abstract class Filter {
     private final String nameLocator = ".//label";
+    private String columnName;
     protected SelenideElement filter;
 
     public Filter(SelenideElement filter) {
@@ -19,5 +20,11 @@ public abstract class Filter {
                 .getText();
     }
 
+    public String getColumnName() {
+        return columnName;
+    }
 
+    public void setColumnName(String columnName) {
+        this.columnName = columnName;
+    }
 }

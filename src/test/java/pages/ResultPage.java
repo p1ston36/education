@@ -21,7 +21,6 @@ public class ResultPage{
 
     PaginationPage pagination = new PaginationPage($x(paginationLocator));
 
-
     public List<String> getHeaders(){
         return $$x(headerLocator)
                 .stream()

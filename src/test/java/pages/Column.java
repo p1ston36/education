@@ -12,6 +12,7 @@ public class Column {
     private String title;
     private SelenideElement table;
     private int titleNumber = getColumnNumber();
+
     public Column from(SelenideElement table, String title){
         this.title = title;
         this.table = table;
